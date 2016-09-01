@@ -7,8 +7,6 @@ from scipy.integrate import odeint
 from model import f_rate_2
 from config import Config
 
-use_log_scale = True # fix
-
 #####################################
 c_ch4 = 20e-6
 Config.setParameters(c_ch4)
@@ -26,22 +24,19 @@ plt.xlabel('time ($min$)', fontsize=20)
 t_min = np.divide(t, 60)
 ax2.grid(True)
 y = np.divide(sol, Config.n0)
-if use_log_scale is True:
-    ax2.set_ylim(ymin=1e-19, ymax=1)
-    # concentration scales to ML
-    # ax2.loglog(t_min, y[:,1], 'r-', label='CH$_3$', linewidth=2)
-    ax2.loglog(t_min, y[:,2], 'b-', label='Active CH$_x$', linewidth=2)
-    # ax2.loglog(t_min, y[:,3], 'g-', label='Unstable cluster', linewidth=2)
-    ax2.loglog(t_min, y[:,4], 'k-', label='Nucleation density', linewidth=2)
-    ax2.loglog(t_min, y[:,5], 'c-', label='Graphene coverage', linewidth=2)
-    # ax2.loglog(t, sol[:, 5], 'y-', label='Defect-induced cluster area')
-    # ax21.loglog(t, sol[:, 6], 'm--', label='Coverage')
+ax2.set_ylim(ymin=1e-19, ymax=1)
+# concentration scales to ML
+# ax2.loglog(t_min, y[:,1], 'r-', label='CH$_3$', linewidth=2)
+ax2.loglog(t_min, y[:,2], 'b-', label='Active CH$_x$', linewidth=2)
+# ax2.loglog(t_min, y[:,3], 'g-', label='Unstable cluster', linewidth=2)
+ax2.loglog(t_min, y[:,4], 'k-', label='Nucleation density', linewidth=2)
+ax2.loglog(t_min, y[:,5], 'c-', label='Graphene coverage', linewidth=2)
+# ax2.loglog(t, sol[:, 5], 'y-', label='Defect-induced cluster area')
+# ax21.loglog(t, sol[:, 6], 'm--', label='Coverage')
 
 
 ax2.legend(loc=0, prop={'size':14})
-if use_log_scale is True:
-    plt.savefig('solution_logscale.eps', format='eps', dpi=1000)
-    plt.savefig('/Users/raymon/Google Drive/UH/dissertation/dissertation/figure/chapter6/solution_logscale.eps', format='eps', dpi=1000)
+# plt.savefig('solution_logscale.eps', format='eps', dpi=1000)
 #####################################
 plt.show()
 

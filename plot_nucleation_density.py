@@ -64,8 +64,7 @@ ax2.set_ylim([0,1e6])
 ax2.grid(True)
 ax2.legend(loc=0, numpoints=1, fontsize=15)
 #####################################
-plt.savefig('nucleation_density.eps', format='eps', dpi=1000)
-plt.savefig('/Users/raymon/Google Drive/UH/dissertation/dissertation/figure/chapter6/nucleation_density.eps', format='eps', dpi=1000)
+# plt.savefig('nucleation_density.eps', format='eps', dpi=1000)
 
 plt.show()
 
